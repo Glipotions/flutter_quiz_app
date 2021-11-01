@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/src/provider.dart';
+import 'package:quiz/const/const.dart';
 import 'package:quiz/database/category_provider.dart';
 import 'package:quiz/database/db_helper.dart';
 import 'package:quiz/states/state_manager.dart';
@@ -63,7 +64,13 @@ class _MyCategoryPageState extends State<MyCategoryPage> {
                         ],
                       ),
                     ),
-                    onTap: () => print('Click to ${category.name}'),
+                    onTap: () {
+                      context.read(questionCategoryState).state = category;
+                      if (category.ID != -1) {
+                        context.read(isTestMode).state = false; //test moduysa
+                        Navigator.pushNamed(context, "/readMode");
+                      }
+                    },
                   );
                 }).toList(),
               );

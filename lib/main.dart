@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:quiz/screens/home_page.dart';
+import 'package:quiz/screens/read_mode.dart';
 
 void main() {
   runApp(ProviderScope(child: MyApp()));
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
       routes: {
         "/homePage": (context) => MyCategoryPage(
               title: 'MyQuiz',
-            )
+            ),
+        "/readMode": (context) => MyReadModePage(),
       },
       theme: ThemeData(
         primarySwatch: Colors.blue,

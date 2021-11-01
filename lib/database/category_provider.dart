@@ -44,8 +44,9 @@ class CategoryProvider {
       columnMainCategoryName,
       columnMainCategoryImage
     ]);
-    if (maps.length > 0)
+    if (maps.length > 0) {
       return maps.map((category) => Category.fromMap(category)).toList();
+    }
     return null;
   }
 }
